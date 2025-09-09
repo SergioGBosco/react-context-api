@@ -20,9 +20,9 @@ const ProdottiPage = () => {
 
         {prodotti.map((prod) => {
           return (
-            <div className="col-3" key={prod.id}>
-              <Link to={`/prodotti/${prod.id}`}>
-                <div className="card" >
+            <div className="col-12 col-md-6 col-lg-3" key={prod.id}>
+              <div className="card" >
+                <Link to={`/prodotti/${prod.id}`} className='card-product'>
                   <img src={prod.image} className="card-img-top" alt={prod.title} />
                   <div className="card-body">
                     <p className="card-text">{prod.price}.</p>
@@ -30,8 +30,8 @@ const ProdottiPage = () => {
                     <p className="card-text">{prod.category}.</p>
                     <p className="card-text">{prod.description}.</p>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </div>
             </div>
           )
         })};
