@@ -1,4 +1,4 @@
-import { useState, useContext, createContext, Children } from "react";
+import { useState, useContext, createContext } from "react";
 
 const BudgetContext = createContext();
 
@@ -6,9 +6,11 @@ const BudgetContext = createContext();
 const BudgetProvider = ({ children }) => {
   const [budgetMode, setBudgetMode] = useState(false)
 
-
+  const selected = () => {
+    { !budgetMode ? setBudgetMode(true) : setBudgetMode(false) }
+  }
   return (
-    <BudgetContext.Provider value={{ budgetMode, setBudgetMode }}>
+    <BudgetContext.Provider value={{ budgetMode, setBudgetMode, selected }}>
       {children}
     </BudgetContext.Provider>
   );

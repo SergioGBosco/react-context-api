@@ -1,11 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-
+import { useBudgetMode } from '../contexts/BudgetContext'
+import { useContext } from 'react'
 const Header = () => {
-
-  const ActiveMode = () => {
-    return (console.log("ciao"))
-  }
+  const { budgetMode, setBudgetMode, selected } = useBudgetMode();
   return (
     <header className='m-3'>
       <div className="container">
@@ -25,7 +23,7 @@ const Header = () => {
               </ul>
             </div>
             <div>
-              <button className='btn btn-success' onClick={ActiveMode} >Modalità Budget</button>
+              <button className={budgetMode ? "btn btn-success" : "btn btn-warning"} onClick={() => setBudgetMode(selected)} value={budgetMode} >{budgetMode ? `Attiva modalita` : `Disattiva modalita `}</button>
             </div>
           </div>
         </div>
