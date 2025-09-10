@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { useBudgetMode } from '../contexts/BudgetContext'
 import { useContext } from 'react'
 const Header = () => {
-  const { budgetMode, setBudgetMode, selected } = useBudgetMode();
+  const { budgetMode, selected } = useBudgetMode();
   return (
     <header className='m-3'>
       <div className="container">
@@ -23,7 +23,7 @@ const Header = () => {
               </ul>
             </div>
             <div>
-              <button className={budgetMode ? "btn btn-success" : "btn btn-warning"} onClick={() => setBudgetMode(selected)} value={budgetMode} >{budgetMode ? `Attiva modalita` : `Disattiva modalita `}</button>
+              <button className={budgetMode ? "btn btn-success" : "btn btn-warning"} onClick={selected} value={budgetMode} >{budgetMode ? `Disattiva modalita` : `Attiva modalita `}</button>
             </div>
           </div>
         </div>

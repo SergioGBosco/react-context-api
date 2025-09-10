@@ -4,14 +4,14 @@ const BudgetContext = createContext();
 
 
 const BudgetProvider = ({ children }) => {
-  const [budgetMode, setBudgetMode] = useState(true)
+  const [budgetMode, setBudgetMode] = useState(false)
 
   const selected = () => {
     // { !budgetMode ? setBudgetMode(true) : setBudgetMode(false) }
     setBudgetMode(!budgetMode)
   }
   return (
-    <BudgetContext.Provider value={{ budgetMode, setBudgetMode, selected }}>
+    <BudgetContext.Provider value={{ budgetMode, selected }}>
       {children}
     </BudgetContext.Provider>
   );
